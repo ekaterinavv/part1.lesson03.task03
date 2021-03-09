@@ -42,7 +42,7 @@ public class Main {
         long elapsed = Duration.between(start, finish).toMillis();
         System.out.println("\n\nBubble sort, ms: " + elapsed);
         System.out.println("Sorted data: ");
-        for (Person sortPerson: sortedPersons1)
+       for (Person sortPerson: sortedPersons1)
             System.out.println(sortPerson.getInformation());
 
         //QuickSort
@@ -59,9 +59,9 @@ public class Main {
 
         }
         //Если имена людей и возраст совпадают, выбрасывать в программе пользовательское исключение
-        for (int i = 0; i < (sortedPersons1.length - 1); i++) {
-            if(sortedPersons1[i].compareTo(sortedPersons1[i + 1]) == 0) {
-                throw new Exception("People match : " + sortedPersons1[i].getInformation());
+        for (int i = 0; i < (sortedPersons2.length - 1); i++) {
+            if(sortedPersons2[i].compareTo(sortedPersons2[i + 1]) == 0) {
+                throw new Exception("People match : " + sortedPersons2[i].getInformation());
             }
 
         }
