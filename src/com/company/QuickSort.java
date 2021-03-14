@@ -3,7 +3,6 @@ package com.company;
 import java.util.Arrays;
 
 public class QuickSort implements Sortable {
-    Person[] persons;
 
     public Person[] sort(Person[] persons) {
         Person[] result = Arrays.copyOf(persons, persons.length);
