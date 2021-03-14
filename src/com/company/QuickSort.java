@@ -1,26 +1,29 @@
 package com.company;
 
-public class QuickSort implements Sortable { Person[] persons;
+import java.util.Arrays;
 
+public class QuickSort implements Sortable {
+    Person[] persons;
 
-    public Person[] sort (Person[] persons){
-        Person[] result = persons.clone();
+    public Person[] sort(Person[] persons) {
+        Person[] result = Arrays.copyOf(persons, persons.length);
         int low = 0;
         int high = result.length - 1;
         sort(result, low, high);
         return result;
     }
+
     public static void sort(Person[] result, int leftBorder, int rightBorder) {
         int leftMarker = leftBorder;
         int rightMarker = rightBorder;
         Person pivot = result[(leftMarker + rightMarker) / 2];
         do {
             // Двигаем левый маркер слева направо пока элемент меньше, чем pivot
-            while (result[leftMarker].compareTo(pivot) == -1) {
+            while (result[leftMarker].compareTo(pivot) < 0) {
                 leftMarker++;
             }
             // Двигаем правый маркер, пока элемент больше, чем pivot
-            while (result[rightMarker].compareTo(pivot) == 1) {
+            while (result[rightMarker].compareTo(pivot) > 0) {
                 rightMarker--;
             }
             // Проверим, не нужно обменять местами элементы, на которые указывают маркеры
@@ -36,7 +39,6 @@ public class QuickSort implements Sortable { Person[] persons;
                 rightMarker--;
             }
         } while (leftMarker <= rightMarker);
-
         // Выполняем рекурсивно для частей
         if (leftMarker < rightBorder) {
             sort(result, leftMarker, rightBorder);
